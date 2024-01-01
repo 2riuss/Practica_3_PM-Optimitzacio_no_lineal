@@ -1,0 +1,5 @@
+param n := 500;
+param a := 1;
+param b := 1;
+param g := 9.8;
+param eps := 1e-12;

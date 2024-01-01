@@ -1,0 +1,24 @@
+# Borrar los anterior comandos en AMPL
+reset;
+
+# Cargar el modelo
+model braquistocrona1.mod;
+
+# Cargar los datos
+data braquistocrona1.dat;
+
+# Indicadión a ampl de que se quiere utilizar como solver: MINOS
+option solver minos;
+option minos_options 'superbasics_limit=1000';
+
+# Resolver
+solve;
+
+# Mostrar los resultados
+param OutputFile symbolic := "solucio_1.txt";
+close (OutputFile);
+option print_separator ',';
+print {i in 0..n} x[i] > (OutputFile);
+print {i in 0..n} y[i] > (OutputFile);
+
+# Ejecutar Ctrl+R
